@@ -1,14 +1,24 @@
 'use strict';
 
 
-import React from 'react';
+import React, {
+    Component
+} from 'react';
 import ReactDom from 'react-dom';
 
-import { Router, Route, hashHistory } from 'react-router';
+
+import Detail from './Detail'
+import List from './List'
+
+import {
+    Router,
+    Route,
+    hashHistory
+} from 'react-router';
 
 
-var App = React.createClass({
-    render: function() {
+class App extends Component {
+    render() {
         return (
             <div>
                 <h5 className="title">hello, yeoman app!</h5>
@@ -18,31 +28,8 @@ var App = React.createClass({
             </div>
         );
     }
-});
+};
 
-var List = React.createClass({
-    render: function() {
-        return (
-            <div>
-                <h5 className="title">hello, yeoman app!</h5>
-                <div><a href="#/">返回首页</a></div>
-                <div>这是列表页</div>
-            </div>
-        );
-    }
-});
-
-var Detail = React.createClass({
-    render: function() {
-        return (
-            <div>
-                <h5 className="title">hello, yeoman app!</h5>
-                <div><a href="#/">返回首页</a></div>
-                <div>这是详情页</div>
-            </div>
-        );
-    }
-});
 
 //最终渲染
 ReactDom.render((
