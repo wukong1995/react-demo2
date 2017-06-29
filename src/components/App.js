@@ -9,6 +9,7 @@ import ReactDom from 'react-dom';
 
 import Detail from './Detail'
 import List from './List'
+import ReactColor from './ReactColor'
 
 import {
     Router,
@@ -37,5 +38,6 @@ ReactDom.render((
         <Route path='/' component={App}></Route>
         <Route path='/list' component={List} />
         <Route path='/detail' component={Detail} />
+        <Route path='/color' component={ReactColor} />
     </Router>
 ), document.getElementById('app'));
