@@ -27,17 +27,17 @@
         "jsx-loader": "^0.13.2",
         "node-libs-browser": "^0.5.2",
         "node-sass": "^3.2.0",
-        "react-router": "^2.7.0",
         "sass-loader": "^1.0.2",
         "style-loader": "^0.12.3",
         "url-loader": "^0.5.6",
-        "webpack": "^2.6.1",
         "webpack-dev-server": "^2.5.0"
     },
     "dependencies": {
         "json5": "^0.5.1",
         "react": "^15.6.1",
         "react-color": "^2.13.0",
-        "react-dom": "^15.6.1"
+        "react-dom": "^15.6.1",
+        "react-router-dom": "^4.1.1",
+        "webpack": "^2.6.1"
     }
 }
