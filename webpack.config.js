@@ -55,6 +55,9 @@ module.exports = {
 
     plugins: [
         new ExtractTextPlugin("main.css"),
-    ]
+    ],
+    resolve: {
+        extensions: ['.js', '.jsx', '.scss', '.css']
+    }
 
 }
