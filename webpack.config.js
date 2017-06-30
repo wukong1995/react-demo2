@@ -1,10 +1,9 @@
 
 'use strict';
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin");  //css单独打包
+const ExtractTextPlugin = require("extract-text-webpack-plugin");  //css单独打包
 
 module.exports = {
-    devtool: 'eval-source-map',
 
     entry: __dirname + '/src/entry.js', //唯一入口文件
     output: {
@@ -13,28 +12,49 @@ module.exports = {
     },
 
     module: {
-        loaders: [
-            { test: /\.js$/, loader: "jsx!babel", include: /src/},
-            { test: /\.css$/, loader: ExtractTextPlugin.extract("style", "css!postcss")},
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!postcss!sass")},
-            { test: /\.(png|jpg)$/, loader: 'url?limit=8192'}
+        rules: [
+            {
+                test: /\.jsx?$/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                      presets: ["es2015", "stage-0", "react"]
+                    }
+                },
+                include: /src/,
+                exclude: /(node_modules|bower_components)/,
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                  fallback: "style-loader",
+                  use: "css-loader"
+                })
+            },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                  fallback: 'style-loader',
+                  //resolve-url-loader may be chained before sass-loader if necessary
+                  use: ['css-loader', 'sass-loader']
+                })
+            },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'url?limit=8192'
+            }
         ]
     },
-
-    postcss: [
-        require('autoprefixer')    //调用autoprefixer插件,css3自动补全
-    ],
 
     devServer: {
         // contentBase: './src/views'  //本地服务器所加载的页面所在的目录
         port: 8888,
-        colors: true,  //终端中输出结果为彩色
         historyApiFallback: true,  //不跳转
         inline: true  //实时刷新
     },
 
     plugins: [
-        new ExtractTextPlugin('main.css'),
+        new ExtractTextPlugin("main.css"),
     ]
 
 }
