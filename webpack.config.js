@@ -29,7 +29,8 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                   fallback: "style-loader",
                   use: "css-loader"
-                })
+                }),
+                include: /flexboxgrid/
             },
             {
                 test: /\.scss$/,
