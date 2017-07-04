@@ -13,12 +13,11 @@ import { observer, inject } from 'mobx-react'
 class Account extends React.Component {
   componentWillMount() {
     this.props.userinfo.fetch();
-    // console.log(this.props.userinfo)
   }
 
   render() {
-    let user = this.props.userinfo.user;
-
+    let user = this.props.userinfo.data;
+    
     return (
       <div>
         <BrowserRouter basename="/setting">

@@ -2,10 +2,18 @@ import React from 'react';
 import { observer, inject } from 'mobx-react'
 
 @inject( 'userinfo') @observer
-
 class User extends React.Component {
-  save() {
-    // 发送ajax请求
+
+  saveChange() {
+    this.props.userinfo.change();
+  }
+
+  textChange (name, value) {
+    this.props.userinfo.user[name] = value;
+  }
+
+  componentWillMount() {
+    this.props.userinfo.fetch();
   }
 
   render() {
@@ -15,19 +23,21 @@ class User extends React.Component {
       <div>
         <div>
           <label>姓名：</label>
-          <input type="text" value={user.name}/>
+          <input type="text" value={user.name}
+          onChange={e => this.textChange('name', e.target.value)} />
         </div>
         <div>
           <label>电话：</label>
-          <input type="text" value={user.telphone}/>
+          <input type="text" value={user.telphone}
+          onChange={e => this.textChange('telphone', e.target.value)} />
         </div>
         <div>
-          <button type="button" onClick={this.save}>确定</button>
+          <button type="button" onClick={this.saveChange(this)}>确定</button>
         </div>
       </div>
-    )
+    );
   }
 }
 
 
-export default User
+export default User;

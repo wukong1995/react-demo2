@@ -3,8 +3,8 @@ import $ from 'jquery';
 
 class Store {
   @observable user = {
-    name: 'test',
-    telphone: '11111111111'
+    name: '',
+    telphone: ''
   }
 
   @observable data = {}
@@ -12,19 +12,20 @@ class Store {
   @action fetch = () => {
     $.ajax({
       url: '/data/user.json',
-      dataType: 'json'
+      dataType: 'json',
     })
-    .done(result => {
+    .done(data => {
+      this.user = data.user;
+      this.data = data.user;
+    })
+    .fail(xhr => {
+      console.log('error');
+    })
+  }
 
-      // 这里打印没效果？？？？
-      console.log(result)
-
-      runInAction(() => {
-
-        this.data = result.user;
-        this.user = result.user;
-      });
-    });
+  @action change = () => {
+    this.data.name = "change";
+    
   }
 }
 
