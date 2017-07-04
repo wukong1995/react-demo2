@@ -4,11 +4,11 @@ import { observer, inject } from 'mobx-react'
 @inject( 'userinfo') @observer
 class User extends React.Component {
 
-  saveChange() {
+  saveChange = () => {
     this.props.userinfo.change();
   }
 
-  textChange (name, value) {
+  textChange = (name, value) => {
     this.props.userinfo.user[name] = value;
   }
 
@@ -32,7 +32,7 @@ class User extends React.Component {
           onChange={e => this.textChange('telphone', e.target.value)} />
         </div>
         <div>
-          <button type="button" onClick={this.saveChange(this)}>确定</button>
+          <button type="button" onClick={this.saveChange}>确定</button>
         </div>
       </div>
     );

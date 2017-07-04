@@ -25,7 +25,6 @@ class Store {
 
   @action change = () => {
     this.data.name = "change";
-    
   }
 }
 
