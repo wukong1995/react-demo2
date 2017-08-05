@@ -1,0 +1,23 @@
+html, body, div, h5, h6, p, ul, li {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.switch-enter {
+  opacity: 0.01;
+}
+
+.switch-enter.switch-enter-active {
+  opacity: 1;
+  transition: opacity 2s ease-in;
+}
+
+.switch-leave {
+  opacity: 1;
+}
+
+.switch-leave.switch-leave-active {
+  opacity: 0.01;
+  transition: opacity 2s ease-in;
+}

@@ -1,10 +1,8 @@
-import React, {
-    Component
-} from 'react'
+import React from 'react';
 
-import { Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-class Detail extends Component {
+class Detail extends React.Component {
   render() {
     return (
       <div>
@@ -14,6 +12,6 @@ class Detail extends Component {
       </div>
     );
   }
-};
+}
 
 export default Detail;

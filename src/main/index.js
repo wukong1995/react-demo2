@@ -1,13 +1,10 @@
-import React, {
-    Component
-} from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { Link } from 'react-router-dom'
+import { Layout, Menu } from 'element-react';
+import 'element-theme-default';
 
-import { Layout,Menu } from 'element-react'
-import 'element-theme-default'
-
-class Index extends Component {
+class Index extends React.Component {
   render() {
     return (
       <div>
@@ -24,9 +21,21 @@ class Index extends Component {
             </Menu>
           </Layout.Col>
         </Layout.Row>
+        <div>
+          <Link to="/list">list</Link>
+        </div>
+        <div>
+          <Link to="/detail">detail</Link>
+        </div>
+        <div>
+          <Link to="/color">color</Link>
+        </div>
+        <div>
+          <Link to="/setting">setting</Link>
+        </div>
       </div>
     );
   }
-};
+}
 
 export default Index;
