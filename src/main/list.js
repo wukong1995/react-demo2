@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class List extends React.Component {
