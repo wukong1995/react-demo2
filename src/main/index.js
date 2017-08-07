@@ -7,20 +7,20 @@ import 'element-theme-default';
 class Index extends React.Component {
   render() {
     return (
-      <div>
-        <Layout.Row gutter="12">
-          <Layout.Col span="5" offset="2">
+      <div className="index">
+        <div className="wrapper">
+          <div className="wrapper__left">
             <Menu theme="dark" className="el-menu-demo" mode="horizontal">
               <Menu.Item index="1">Project</Menu.Item>
             </Menu>
-          </Layout.Col>
-          <Layout.Col span="5">
+          </div>
+          <div className="wrapper__right">
             <Menu theme="dark" className="el-menu-demo" mode="horizontal" >
               <Menu.Item index="1">登录</Menu.Item>
               <Menu.Item index="2">注册</Menu.Item>
             </Menu>
-          </Layout.Col>
-        </Layout.Row>
+          </div>
+        </div>
         <div>
           <Link to="/list">list</Link>
         </div>
@@ -32,6 +32,9 @@ class Index extends React.Component {
         </div>
         <div>
           <Link to="/setting">setting</Link>
+        </div>
+         <div>
+          <Link to="/add">add</Link>
         </div>
       </div>
     );
