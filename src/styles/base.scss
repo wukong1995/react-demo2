@@ -3,6 +3,19 @@ html, body, div, h5, h6, p, ul, li {
   padding: 0px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 
 .switch-enter {
   opacity: 0.01;
@@ -22,7 +35,7 @@ html, body, div, h5, h6, p, ul, li {
   transition: opacity 2s ease-in;
 }
 
-.wrapper {
+.flex-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;

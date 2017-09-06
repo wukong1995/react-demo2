@@ -5,4 +5,4 @@
 import './styles/app.scss';
 
 //引入组件
-import './app';
+import './App';
