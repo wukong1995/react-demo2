@@ -1,6 +1,6 @@
 'use strict';
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin");  //css单独打包
+const ExtractTextPlugin = require('extract-text-webpack-plugin');  //css单独打包
 const webpack =  require('webpack');
 
 module.exports = {
@@ -13,21 +13,14 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["es2015", "stage-0", "react"],
-            plugins: ["transform-decorators-legacy"]
-          }
-        },
-        include: /src/,
-        exclude: /(node_modules|bower_components)/
+        loader: 'babel-loader',
+        include: /src/
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
+          fallback: 'style-loader',
+          use: 'css-loader'
         }),
         include: [/flexboxgrid/,/element-theme-default/]
       },
@@ -48,7 +41,6 @@ module.exports = {
       }
     ]
   },
-
   devServer: {
     proxy: {
       '/api': {
@@ -63,9 +55,8 @@ module.exports = {
     historyApiFallback: true,  //不跳转
     inline: true , //实时刷新,
   },
-
   plugins: [
-    new ExtractTextPlugin("main.css"),
+    new ExtractTextPlugin('main.css'),
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
     new webpack.optimize.UglifyJsPlugin({
       output: {
@@ -76,4 +67,4 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.scss', '.css']
   }
-}
+};

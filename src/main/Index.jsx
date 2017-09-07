@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class Index extends React.Component {
   render() {
     return (
-      <div className="index">
+      <div className="index container">
         <div>
           <Link to="/list">list</Link>
         </div>
@@ -18,8 +18,11 @@ class Index extends React.Component {
         <div>
           <Link to="/setting">setting</Link>
         </div>
-         <div>
+        <div>
           <Link to="/add">add</Link>
+        </div>
+        <div>
+          <Link to="/editor">editor</Link>
         </div>
       </div>
     );
