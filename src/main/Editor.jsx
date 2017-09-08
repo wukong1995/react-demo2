@@ -13,16 +13,16 @@ class Editor extends React.Component {
         <div className="editor-container">
           <div className="editor-menu-container clearfix">
             <div className="menu-group">
-              <a className="menu-item js-show-code" href="javascript:;"><i className="iconfont icon-icon"></i></a>
+              <a className="menu-item" id="show-code" href="javascript:;"><i className="iconfont icon-icon"></i></a>
             </div>
             <div className="menu-group">
-              <a className="menu-item" href="javascript:;"><i className="iconfont icon-yinyong"></i></a>
+              <a className="menu-item" id="yinyong" href="javascript:;"><i className="iconfont icon-yinyong"></i></a>
             </div>
             <div className="menu-group">
-              <a className="menu-item" href="javascript:;"><i className="iconfont icon-cuti1"></i></a>
-              <a className="menu-item" href="javascript:;"><i className="iconfont icon-xieti"></i></a>
-              <a className="menu-item" href="javascript:;"><i className="iconfont icon-xiahuaxian"></i></a>
-              <a className="menu-item" href="javascript:;"><i className="iconfont icon-shanchuxian"></i></a>
+              <a className="menu-item" id="cuti" href="javascript:;"><i className="iconfont icon-cuti1"></i></a>
+              <a className="menu-item" id="xieti" href="javascript:;"><i className="iconfont icon-xieti"></i></a>
+              <a className="menu-item" id="xiahuaxian" href="javascript:;"><i className="iconfont icon-xiahuaxian"></i></a>
+              <a className="menu-item" id="deleteline" href="javascript:;"><i className="iconfont icon-shanchuxian"></i></a>
             </div>
             <div className="menu-group">
               <a className="menu-item" href="javascript:;"><i className="iconfont icon-wenziyanse"></i></a>
@@ -33,8 +33,10 @@ class Editor extends React.Component {
             </div>
           </div>
           <div className="editor-content-container">
-            <div className="editor-pannel js-editor-pannel" contentEditable></div>
-            <textarea className="editor-textarea js-editor-textarea"></textarea>
+            <div className="editor-pannel" id="editor-pannel" contentEditable>
+              <p>请输入内容</p>
+            </div>
+            <textarea className="editor-textarea" id="editor-textarea"></textarea>
           </div>
         </div>
       </div>

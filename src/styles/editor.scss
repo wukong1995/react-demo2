@@ -23,11 +23,20 @@
 
   &-pannel {
     overflow-y: auto;
+
+    blockquote {
+      margin: 5px 10px;
+      border-left: 4px solid #151515;
+      padding: 10px;
+      background-color: #ccc;
+    }
   }
 
   &-textarea {
     display: none;
+    resize: none;
   }
+
 }
 
 .menu {
