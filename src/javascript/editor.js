@@ -2,10 +2,10 @@ import $ from 'jquery';
 import Selection from './selection';
 
 const helper = {
-  changeText: type => {
+  changeText: (tagName, prop = '') => {
     const selection = new Selection();
     
-    if (selection.getNodeSelection() === null) {
+    if (selection.isSelection() === null) {
       return;
     }
     selection.init();
@@ -19,11 +19,11 @@ const helper = {
     if (length > 1){  // 选中多个元素
       $startNode.nextUntil($endNode).each((index, ele) => {
         const $ele = $(ele);
-        $ele.html($ele.html().replace(text[index + 1], `<${type}>${text[index + 1]}</${type}>`));
+        $ele.html($ele.html().replace(text[index + 1], `<${tagName} ${prop}>${text[index + 1]}</${tagName}>`));
       });
-      $endNode.html($endNode.html().replace(endText, `<${type}>${endText}</${type}>`));
+      $endNode.html($endNode.html().replace(endText, `<${tagName} ${prop}>${endText}</${tagName}>`));
     }
-    $startNode.html($startNode.html().replace(startText, `<${type}>${startText}</${type}>`));
+    $startNode.html($startNode.html().replace(startText, `<${tagName} ${prop}>${startText}</${tagName}>`));
     selection.getSelection().removeAllRanges();
   }
 };
@@ -50,7 +50,7 @@ const editorEvent = () => {
   // yinyong
   $('#yinyong').on('click', function() {
     const selection = new Selection();
-    if (selection.getNodeSelection() === null) {
+    if (selection.isSelection() === null) {
       return;
     }
 
@@ -85,6 +85,22 @@ const editorEvent = () => {
   $('#deleteline').on('click', function() {
     helper.changeText('strike');
   });
+
+  // addColor
+  $('#addColor').on('click', function() {
+    helper.changeText('font', 'color="red"');
+  });
+
+  // addBgc
+  $('#addBgc').on('click', function() {
+    helper.changeText('span', 'style="background-color: rgb(77, 128, 191);"');
+  });
+
+  // addTitle
+  $('#addTitle').on('click', function() {
+    helper.changeText('h1');
+  });
+
 
 };
 

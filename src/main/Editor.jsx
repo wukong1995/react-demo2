@@ -25,11 +25,11 @@ class Editor extends React.Component {
               <a className="menu-item" id="deleteline" href="javascript:;"><i className="iconfont icon-shanchuxian"></i></a>
             </div>
             <div className="menu-group">
-              <a className="menu-item" href="javascript:;"><i className="iconfont icon-wenziyanse"></i></a>
-              <a className="menu-item" href="javascript:;"><i className="iconfont icon-wenzibeijingse"></i></a>
+              <a className="menu-item" id="addColor" href="javascript:;"><i className="iconfont icon-wenziyanse"></i></a>
+              <a className="menu-item" id="addBgc" href="javascript:;"><i className="iconfont icon-wenzibeijingse"></i></a>
             </div>
             <div className="menu-group">
-              <a className="menu-item" href="javascript:;"><i className="iconfont icon-biaoti"></i></a>
+              <a className="menu-item" id="addTitle" href="javascript:;"><i className="iconfont icon-biaoti"></i></a>
             </div>
           </div>
           <div className="editor-content-container">

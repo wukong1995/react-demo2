@@ -16,9 +16,8 @@ Selection.prototype = {
     this.select = window.getSelection();
     this.range = this.select.getRangeAt(0);
   },
-  getNodeSelection: function(ele) {
-    const elem = ele ? ele : window.getSelection().anchorNode;
-    return $(elem.nodeType === 1 ? elem : elem.parentNode);
+  isSelection: function() {
+    return window.getSelection().anchorNode;
   },
 
   getSelection: function() {
