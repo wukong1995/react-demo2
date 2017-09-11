@@ -1,6 +1,6 @@
 import React from 'react';
 
-import editorEvent from '../javascript/editor.js';
+import editorEvent from './event';
 
 class Editor extends React.Component {
   componentDidMount() {
@@ -34,7 +34,7 @@ class Editor extends React.Component {
           </div>
           <div className="editor-content-container">
             <div className="editor-pannel" id="editor-pannel" contentEditable>
-              <p>请输入内容</p>
+              <p>请输入内容...</p>
             </div>
             <textarea className="editor-textarea" id="editor-textarea"></textarea>
           </div>

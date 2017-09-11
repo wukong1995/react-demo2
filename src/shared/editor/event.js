@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import Selection  from './selection';
-// import getPNode from './helper';
 
 const helper = {
   changeText: (tagName, prop = '') => {
@@ -148,8 +147,6 @@ const editorEvent = () => {
       break;
     }
   });
-
-  
 };
 
 export default editorEvent;
