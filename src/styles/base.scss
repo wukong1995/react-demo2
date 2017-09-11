@@ -3,6 +3,10 @@ html, body, div, h5, h6, p, ul, li {
   padding: 0px;
 }
 
+html {
+  font-size: 10px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -33,6 +37,33 @@ a {
 .switch-leave.switch-leave-active {
   opacity: 0.01;
   transition: opacity 2s ease-in;
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.clearfix {
+  zoom:1;
 }
 
 .flex-wrapper {
