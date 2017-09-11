@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 class Detail extends React.Component {
@@ -12,6 +11,6 @@ class Detail extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default Detail;
