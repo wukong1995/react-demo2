@@ -37,6 +37,9 @@ Selection.prototype = {
   getAnchorNode: function() {
     return $(this.select.anchorNode);
   },
+  getCloneNodes: function() {
+    return this.range.cloneContents().children;
+  },
   createRangeByElem: function ($elem, toStart, isContent) {
     // $elem - 经过封装的 elem
     // toStart - true 开始位置，false 结束位置

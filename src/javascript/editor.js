@@ -10,19 +10,16 @@ const helper = {
     }
     const text = selection.getSelctionText().split('\n');
     const $startNode = selection.getSelectionStart();
-    const $endNode = selection.getSelectionEnd();
-    const length = text.length;
     const startText = text[0];
-    const endText = text[length - 1];
 
-    // bug 当选中内容有不同样式时，无法替换新的样式
-
-    if (length > 1){  // 选中多个元素
-      $startNode.nextUntil($endNode).each((index, ele) => {
-        const $ele = $(ele);
-        $ele.html($ele.html().replace(text[index + 1], `<${tagName} ${prop}>${text[index + 1]}</${tagName}>`));
-      });
-      $endNode.html($endNode.html().replace(endText, `<${tagName} ${prop}>${endText}</${tagName}>`));
+    const cloneNodes = selection.getCloneNodes();
+    if(cloneNodes.length > 0) { // 选中多个元素
+      let $curNode = $startNode.next();
+      for (let i = 1;i < cloneNodes.length; i++ ) {
+        let text = cloneNodes[i].innerHTML;
+        $curNode.html($curNode.html().replace(text, `<${tagName} ${prop}>${text}</${tagName}>`));
+        $curNode = $curNode.next();
+      }
     }
     $startNode.html($startNode.html().replace(startText, `<${tagName} ${prop}>${startText}</${tagName}>`));
     selection.getSelection().removeAllRanges();
@@ -136,6 +133,8 @@ const editorEvent = () => {
       break;
     }
   });
+
+  // 删除的时候，禁止删除全部 留一个p
 };
 
 export default editorEvent;
