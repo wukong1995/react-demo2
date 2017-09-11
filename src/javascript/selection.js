@@ -1,14 +1,10 @@
 import $ from 'jquery';
-const getPNode = function(node) {
-  if (node.nodeName.toString().toLowerCase() === 'p') {
-    return $(node);
-  }
-  return getPNode(node.parentNode);
-};
+import getPNode from './helper';
 
 const Selection = function() {
   this.select = null;
   this.range = null;
+  this.init();
 };
 
 Selection.prototype = {
@@ -17,7 +13,7 @@ Selection.prototype = {
     this.range = this.select.getRangeAt(0);
   },
   isSelection: function() {
-    return window.getSelection().anchorNode;
+    return this.select.toString() === '';
   },
 
   getSelection: function() {
@@ -37,6 +33,33 @@ Selection.prototype = {
   },
   getSelctionText: function() {
     return this.select.toString();
+  },
+  getAnchorNode: function() {
+    return $(this.select.anchorNode);
+  },
+  createRangeByElem: function ($elem, toStart, isContent) {
+    // $elem - 经过封装的 elem
+    // toStart - true 开始位置，false 结束位置
+    // isContent - 是否选中Elem的内容
+    if (!$elem.length) {
+      return;
+    }
+
+    const elem = $elem[0];
+    const range = document.createRange();
+
+    if (isContent) {
+      range.selectNodeContents(elem);
+    } else {
+      range.selectNode(elem);
+    }
+
+    if (typeof toStart === 'boolean') {
+      range.collapse(toStart);
+    }
+
+    // 存储 range
+    // this.saveRange(range);
   }
 };
 
