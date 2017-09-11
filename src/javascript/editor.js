@@ -17,6 +17,7 @@ const helper = {
       let $curNode = $startNode.next();
       for (let i = 1;i < cloneNodes.length; i++ ) {
         let text = cloneNodes[i].innerHTML;
+        // bug-- 替换的时候，匹配替换有问题
         $curNode.html($curNode.html().replace(text, `<${tagName} ${prop}>${text}</${tagName}>`));
         $curNode = $curNode.next();
       }
@@ -76,6 +77,20 @@ const editorEvent = () => {
     $container.remove();
   };
 
+  // 删除的时候，禁止删除全部 留一个p
+  $panel.on('keydown', function(event) {
+    if (event.keyCode !== 8) {
+      return;
+    }
+    
+    const txtHtml = $panel.html().toLowerCase().trim();
+    if (txtHtml === '<p><br></p>') {
+      event.preventDefault();
+      return;
+    }
+  });
+
+  // 监控回车事件
   $panel.on('keyup', function(event) {
     if (event.keyCode !== 13) {
       return;
@@ -134,7 +149,7 @@ const editorEvent = () => {
     }
   });
 
-  // 删除的时候，禁止删除全部 留一个p
+  
 };
 
 export default editorEvent;
