@@ -1,10 +1,11 @@
 import $ from 'jquery';
 
-const getPNode = function(node) {
-  if (node.nodeName.toString().toLowerCase() === 'p') {
+const getTopNode = function(node) {
+  const nodeName  = node.nodeName.toString().toLowerCase();
+  if (nodeName === 'p' || nodeName === 'h1' || nodeName === 'blockquote') {
     return $(node);
   }
-  return getPNode(node.parentNode);
+  return getTopNode(node.parentNode);
 };
 
-export default getPNode;
+export default getTopNode;

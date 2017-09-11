@@ -5,8 +5,7 @@ import Selection  from './selection';
 const helper = {
   changeText: (tagName, prop = '') => {
     const selection = new Selection();
-    
-    if (selection.isSelection() === null) {
+    if (selection.isSelection()) {
       return;
     }
     const text = selection.getSelctionText().split('\n');
@@ -30,7 +29,7 @@ const helper = {
   },
   changeTag: (tagName) => {
     const selection = new Selection();
-    if (selection.isSelection() === null) {
+    if (selection.isSelection()) {
       return;
     }
 
@@ -49,6 +48,7 @@ const helper = {
 const editorEvent = () => {
   const $panel = $('#editor-pannel');
   const $textarea = $('#editor-textarea');
+  const $showCode = $('#show-code');
 
   const pHandle = () => {
     // 将自动生成的标签换成p
@@ -88,7 +88,7 @@ const editorEvent = () => {
   });
 
   // show code
-  $('#show-code').on('click', function() {
+  $showCode.on('click', function() {
     const $this = $(this);
 
     if($this.hasClass('active')) {
@@ -103,6 +103,9 @@ const editorEvent = () => {
   });
 
   $('.menu-item').on('click', function(event) {
+    if($showCode.hasClass('active')) {
+      return;
+    }
     const target = $(event.currentTarget);
     switch(target.attr('id')) {
     case 'cuti':
