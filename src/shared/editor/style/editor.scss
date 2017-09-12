@@ -54,5 +54,26 @@
     &.active {
       color: #5a7ff7;
     }
+    
+    &:hover {
+      .menu-item__drop {
+        display: block;
+      }
+    }
+  }
+
+  &-item__drop {
+    position: absolute;
+    padding: .5rem 1rem;
+    border: 1px solid #ccc;
+    margin: 4px 0 0 -1rem;
+    color: #000;
+    z-index: 1;
+    background-color: #fff;
+    display: none;
+
+    li {
+      margin: .5rem 0;
+    }
   }
 }

@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import ReactDom from 'react-dom';
 import Header from './shared/Header';
@@ -8,7 +6,7 @@ import Index from './main/Index';
 import Detail from './main/Detail';
 import List from './main/List';
 import Add from './main/Add';
-import Editor from './main/Editor';
+import EditorPage from './main/EditorPage';
 import ReactColor from './main/React-color';
 
 import { BrowserRouter, Route , Switch, Redirect } from 'react-router-dom';
@@ -31,7 +29,7 @@ class App extends React.Component {
               <Route path="/add" component={Add} />
               <Route path="/detail" component={Detail} />
               <Route path="/color" component={ReactColor} />
-              <Route path="/editor" component={Editor} />
+              <Route path="/editor" component={EditorPage} />
               <Route path="/*" render={() => <Redirect to="/index" />} />
             </Switch>
           </ReactCSSTransitionGroup>

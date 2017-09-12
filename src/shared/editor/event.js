@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import Selection  from './selection';
-// import getPNode from './helper';
 
 const helper = {
   changeText: (tagName, prop = '') => {
@@ -17,6 +16,7 @@ const helper = {
       let $curNode = $startNode.next();
       for (let i = 1;i < cloneNodes.length; i++ ) {
         let text = cloneNodes[i].innerHTML;
+        // bug-- 替换的时候，匹配替换有问题
         $curNode.html($curNode.html().replace(text, `<${tagName} ${prop}>${text}</${tagName}>`));
         $curNode = $curNode.next();
       }
@@ -33,6 +33,7 @@ const helper = {
     const text = selection.getSelctionText().split('\n');
     const $startNode = selection.getSelectionStart();
     const $endNode = selection.getSelectionEnd();
+    console.log(text)
 
     if (text.length > 1){  // 选中多个元素
       $startNode.nextUntil($endNode).remove();
@@ -76,6 +77,20 @@ const editorEvent = () => {
     $container.remove();
   };
 
+  // 删除的时候，禁止删除全部 留一个p
+  $panel.on('keydown', function(event) {
+    if (event.keyCode !== 8) {
+      return;
+    }
+    
+    const txtHtml = $panel.html().toLowerCase().trim();
+    if (txtHtml === '<p><br></p>') {
+      event.preventDefault();
+      return;
+    }
+  });
+
+  // 监控回车事件
   $panel.on('keyup', function(event) {
     if (event.keyCode !== 13) {
       return;
@@ -104,7 +119,7 @@ const editorEvent = () => {
       return;
     }
     const target = $(event.currentTarget);
-    switch(target.attr('id')) {
+    switch(target.data('type')) {
     case 'cuti':
       helper.changeText('b');
       break;
@@ -123,9 +138,6 @@ const editorEvent = () => {
     case 'addBgc':
       helper.changeText('span', 'style="background-color: rgb(77, 128, 191);"');
       break;
-    case 'addTitle':
-      helper.changeTag('h1');
-      break;
     case 'yinyong':
       helper.changeTag('blockquote');
       break;
@@ -134,7 +146,44 @@ const editorEvent = () => {
     }
   });
 
-  // 删除的时候，禁止删除全部 留一个p
+  $('.menu-item__drop').on('click', function(event) {
+    if($showCode.hasClass('active')) {
+      return;
+    }
+    const target = $(event.target);
+    switch(target.data('type').toLowerCase()) {
+    case 'addh1':
+      helper.changeTag('h1');
+      break;
+    case 'addh2':
+      helper.changeTag('h2');
+      break;
+    case 'addh3':
+      helper.changeTag('h3');
+      break;
+    case 'addh4':
+      helper.changeTag('h4');
+      break;
+    case 'addh5':
+      helper.changeTag('h5');
+      break;
+    case 'addh6':
+      helper.changeTag('h6');
+      break;
+    case 'addp':
+      helper.changeTag('P');
+      break;
+    default:
+      break;
+    }
+  });
 };
 
 export default editorEvent;
+
+// -------
+// 创建一个editor对象，所有属性全部挂在到editor上面
+// 创建一个selection对象，每次如何更新选区？
+
+// 实现可定制化
+

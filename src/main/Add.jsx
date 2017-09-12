@@ -1,9 +1,9 @@
 import React from 'react';
+import Prototype from 'prop-types';
 import { extend } from 'lodash';
 
-import { Link } from 'react-router-dom';
-
 class InputComponent extends React.Component {
+
   handleChange(e) {
     const value = Number(e.target.value);
     this.props.valueChange(value);
@@ -12,17 +12,25 @@ class InputComponent extends React.Component {
   render () {
     return (
       <input type="number" value={this.props.value} onChange={(e) => this.handleChange(e)} />
-    )
+    );
   }
 }
+InputComponent.propTypes = {
+  valueChange: Prototype.func,
+  value: Prototype.string
+};
 
 class TextComponent extends React.Component {
   render() {
     return (
       <p>{this.props.value}</p>
-    )
+    );
   }
 }
+TextComponent.propTypes = {
+  value: Prototype.string
+};
+
 
 class Add extends React.Component {
   constructor(props) {
@@ -34,7 +42,8 @@ class Add extends React.Component {
         name: 'wang',
         age: 20
       }
-    }
+    };
+
     this.handleSum = this.handleSum.bind(this);
     this.handleSubtraction = this.handleSubtraction.bind(this);
   }
@@ -56,12 +65,12 @@ class Add extends React.Component {
       <div>
         和：
         <InputComponent
-        value={this.state.sum}
-        valueChange={this.handleSum} />
+          value={this.state.sum}
+          valueChange={this.handleSum} />
         被减数：
         <InputComponent
-        value={this.state.subtraction}
-        valueChange={this.handleSubtraction} />
+          value={this.state.subtraction}
+          valueChange={this.handleSubtraction} />
         结果：
         <TextComponent value={result} />
         <div>
