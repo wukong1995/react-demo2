@@ -33,6 +33,7 @@ const helper = {
     const text = selection.getSelctionText().split('\n');
     const $startNode = selection.getSelectionStart();
     const $endNode = selection.getSelectionEnd();
+    console.log(text)
 
     if (text.length > 1){  // 选中多个元素
       $startNode.nextUntil($endNode).remove();
@@ -118,7 +119,7 @@ const editorEvent = () => {
       return;
     }
     const target = $(event.currentTarget);
-    switch(target.attr('id')) {
+    switch(target.data('type')) {
     case 'cuti':
       helper.changeText('b');
       break;
@@ -137,11 +138,40 @@ const editorEvent = () => {
     case 'addBgc':
       helper.changeText('span', 'style="background-color: rgb(77, 128, 191);"');
       break;
-    case 'addTitle':
-      helper.changeTag('h1');
-      break;
     case 'yinyong':
       helper.changeTag('blockquote');
+      break;
+    default:
+      break;
+    }
+  });
+
+  $('.menu-item__drop').on('click', function(event) {
+    if($showCode.hasClass('active')) {
+      return;
+    }
+    const target = $(event.target);
+    switch(target.data('type').toLowerCase()) {
+    case 'addh1':
+      helper.changeTag('h1');
+      break;
+    case 'addh2':
+      helper.changeTag('h2');
+      break;
+    case 'addh3':
+      helper.changeTag('h3');
+      break;
+    case 'addh4':
+      helper.changeTag('h4');
+      break;
+    case 'addh5':
+      helper.changeTag('h5');
+      break;
+    case 'addh6':
+      helper.changeTag('h6');
+      break;
+    case 'addp':
+      helper.changeTag('P');
       break;
     default:
       break;

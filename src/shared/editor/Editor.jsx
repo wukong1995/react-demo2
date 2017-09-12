@@ -16,34 +16,34 @@ class Editor extends React.Component {
               <a className="menu-item" id="show-code" href="javascript:;"><i className="iconfont icon-icon" /></a>
             </div>
             <div className="menu-group">
-              <a className="menu-item" id="addTitle" href="javascript:;">
+              <a className="menu-item" href="javascript:;">
                 <i className="iconfont icon-biaoti" />
                 <div className="menu-item__drop">
                   <ul>
-                    <li><h1>H1</h1></li>
-                    <li><h2>H2</h2></li>
-                    <li><h3>H3</h3></li>
-                    <li><h4>H4</h4></li>
-                    <li><h5>H5</h5></li>
-                    <li><h6>H6</h6></li>
-                    <li><p>正文</p></li>
+                    <li><h1 data-type="addH1">H1</h1></li>
+                    <li><h2 data-type="addH2">H2</h2></li>
+                    <li><h3 data-type="addH3">H3</h3></li>
+                    <li><h4 data-type="addH4">H4</h4></li>
+                    <li><h5 data-type="addH5">H5</h5></li>
+                    <li><h6 data-type="addH6">H6</h6></li>
+                    <li><p data-type="addP">正文</p></li>
                   </ul>
                 </div>
               </a>
-              <a className="menu-item" id="yinyong" href="javascript:;"><i className="iconfont icon-yinyong" /></a>
+              <a className="menu-item" data-type="yinyong" href="javascript:;"><i className="iconfont icon-yinyong" /></a>
             </div>
             <div className="menu-group">
-              <a className="menu-item" id="cuti" href="javascript:;"><i className="iconfont icon-cuti1" /></a>
-              <a className="menu-item" id="xieti" href="javascript:;"><i className="iconfont icon-xieti" /></a>
-              <a className="menu-item" id="xiahuaxian" href="javascript:;"><i className="iconfont icon-xiahuaxian" /></a>
-              <a className="menu-item" id="deleteline" href="javascript:;"><i className="iconfont icon-shanchuxian" /></a>
+              <a className="menu-item" data-type="cuti" href="javascript:;"><i className="iconfont icon-cuti1" /></a>
+              <a className="menu-item" data-type="xieti" href="javascript:;"><i className="iconfont icon-xieti" /></a>
+              <a className="menu-item" data-type="xiahuaxian" href="javascript:;"><i className="iconfont icon-xiahuaxian" /></a>
+              <a className="menu-item" data-type="deleteline" href="javascript:;"><i className="iconfont icon-shanchuxian" /></a>
             </div>
             <div className="menu-group">
-              <a className="menu-item" id="addColor" href="javascript:;"><i className="iconfont icon-editfontcolor" /></a>
-              <a className="menu-item" id="addBgc" href="javascript:;"><i className="iconfont icon-wenzibeijingse" /></a>
+              <a className="menu-item" data-type="addColor" href="javascript:;"><i className="iconfont icon-editfontcolor" /></a>
+              <a className="menu-item" data-type="addBgc" href="javascript:;"><i className="iconfont icon-wenzibeijingse" /></a>
             </div>
             <div className="menu-group">
-              <a className="menu-item" id="addTitle" href="javascript:;">
+              <a className="menu-item" data-type="addTitle" href="javascript:;">
                 <i className="iconfont icon-lianjie" />
                 <div className="menu-item__drop">
                   <h5>链接 <i>关闭</i></h5>
@@ -52,7 +52,7 @@ class Editor extends React.Component {
                   <p><a href="javascript:;">插入</a></p>
                 </div>
               </a>
-              <a className="menu-item" id="addTitle" href="javascript:;">
+              <a className="menu-item" data-type="addTitle" href="javascript:;">
                 <i className="iconfont icon-ul" />
                 <div className="menu-item__drop">
                   <ul>
@@ -61,7 +61,7 @@ class Editor extends React.Component {
                   </ul>
                 </div>
               </a>
-              <a className="menu-item" id="addTitle" href="javascript:;">
+              <a className="menu-item" data-type="addTitle" href="javascript:;">
                 <i className="iconfont icon-alignleft" />
                 <div className="menu-item__drop">
                   <ul>
