@@ -150,3 +150,10 @@ const editorEvent = () => {
 };
 
 export default editorEvent;
+
+// -------
+// 创建一个editor对象，所有属性全部挂在到editor上面
+// 创建一个selection对象，每次如何更新选区？
+
+// 实现可定制化
+
