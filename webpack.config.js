@@ -1,13 +1,13 @@
 /* global __dirname */
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');  //css单独打包
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack =  require('webpack');
 
 module.exports = {
-  entry: './src/entry.js', //唯一入口文件
+  entry: './src/entry.js',
   output: {
-    path: __dirname + '/build', //打包后的文件存放的地方
-    filename: 'bundle.js' //打包后输出文件的文件名
+    path: __dirname + '/build',
+    filename: 'bundle.js'
   },
   module: {
     rules: [

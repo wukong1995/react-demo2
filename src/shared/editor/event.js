@@ -33,13 +33,13 @@ const helper = {
     const text = selection.getSelctionText().split('\n');
     const $startNode = selection.getSelectionStart();
     const $endNode = selection.getSelectionEnd();
-    console.log(text)
+    // console.log(text);
 
     if (text.length > 1){  // 选中多个元素
       $startNode.nextUntil($endNode).remove();
       $endNode.remove();
     }
-    $startNode.replaceWith(`<${tagName}>${text.join('<br>')}</${tagName}>`);    
+    $startNode.replaceWith(`<${tagName}>${text.join('<br>')}</${tagName}>`);
   }
 };
 
