@@ -33,13 +33,13 @@ const helper = {
     const text = selection.getSelctionText().split('\n');
     const $startNode = selection.getSelectionStart();
     const $endNode = selection.getSelectionEnd();
-    console.log(text)
+    // console.log(text);
 
     if (text.length > 1){  // 选中多个元素
       $startNode.nextUntil($endNode).remove();
       $endNode.remove();
     }
-    $startNode.replaceWith(`<${tagName}>${text.join('<br>')}</${tagName}>`);    
+    $startNode.replaceWith(`<${tagName}>${text.join('<br>')}</${tagName}>`);
   }
 };
 
@@ -121,22 +121,24 @@ const editorEvent = () => {
     const target = $(event.currentTarget);
     switch(target.data('type')) {
     case 'cuti':
-      helper.changeText('b');
+      document.execCommand('bold');
       break;
     case 'xieti':
-      helper.changeText('i');
+      document.execCommand('italic');
       break;
     case 'xiahuaxian':
-      helper.changeText('u');
+      document.execCommand('underline');
       break;
     case 'deleteline':
-      helper.changeText('strike');
+      document.execCommand('strikeThrough');
       break;
     case 'addColor':
-      helper.changeText('font', 'color="red"');
+      document.execCommand('foreColor', false ,'red');
       break;
     case 'addBgc':
-      helper.changeText('span', 'style="background-color: rgb(77, 128, 191);"');
+      // 第三个参数为color类型的字符串
+      // rgb不起作用，#ccc 是可以的, 英文单词也可以
+      document.execCommand('backColor', false ,'#ccc');
       break;
     case 'yinyong':
       helper.changeTag('blockquote');
@@ -177,6 +179,25 @@ const editorEvent = () => {
       break;
     }
   });
+
+  // 创建a链接
+  // document.execCommand('createLink', false ,'http://jiqizhixin.com');
+  // 去除链接 unlink
+
+  // 更换标签 只对第一行起作用
+  // document.execCommand('formatBlock', false ,'H1');
+
+  // 新增html片段：但是IE不支持这种方式
+  // document.execCommand('insertHTML', false ,'<h1>哇哦，这是新增的</h1>')
+
+  // 插入image 标签
+  // document.execCommand('insertImage', false , imageUrl)
+
+  // 插入有序 无序列表：insertOrderedList insertUnorderedList： 不起作用
+
+  // 文字对齐方式：justifyCenter justifyLeft justifyRight
+
+  // 上角标：superscript 下角标：subscript
 };
 
 export default editorEvent;

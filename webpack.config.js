@@ -1,13 +1,13 @@
-'use strict';
+/* global __dirname */
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');  //css单独打包
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack =  require('webpack');
 
 module.exports = {
-  entry: __dirname + '/src/entry.js', //唯一入口文件
+  entry: './src/entry.js',
   output: {
-    path: __dirname + '/build', //打包后的文件存放的地方
-    filename: 'bundle.js' //打包后输出文件的文件名
+    path: __dirname + '/build',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -17,18 +17,10 @@ module.exports = {
         include: /src/
       },
       {
-        test: /\.css$/,
+        test: /\.(css|scss|sass)$/i,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        }),
-        include: [/flexboxgrid/,/element-theme-default/]
-      },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: ['css-loader', 'sass-loader'],
+          fallback: 'style-loader'
         })
       },
       {
@@ -75,6 +67,7 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.css']
-  }
+    extensions: ['.js', '.jsx', '.css', '.scss'],
+  },
+  devtool: 'eval-source-map'
 };
