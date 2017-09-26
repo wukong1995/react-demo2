@@ -54,8 +54,8 @@ module.exports = {
       }
     },
     port: 8888,
-    historyApiFallback: true,  //不跳转
-    inline: true , //实时刷新,
+    historyApiFallback: true,
+    inline: true ,
   },
   plugins: [
     new ExtractTextPlugin('main.css'),

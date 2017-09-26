@@ -6,6 +6,7 @@ import Index from './main/Index';
 import Detail from './main/Detail';
 import List from './main/List';
 import Add from './main/Add';
+import Redux from './main/Redux';
 import EditorPage from './main/EditorPage';
 import ReactColor from './main/React-color';
 
@@ -27,6 +28,7 @@ class App extends React.Component {
               <Route path="/index" component={Index} />
               <Route path="/list" component={List} />
               <Route path="/add" component={Add} />
+              <Route path="/redux" component={Redux} />
               <Route path="/detail" component={Detail} />
               <Route path="/color" component={ReactColor} />
               <Route path="/editor" component={EditorPage} />

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --devtool --progress",
+    "dev": "webpack-dev-server --devtool source-map",
     "build": "webpack -p",
     "eslint": "eslint ./src --ext .js,.jsx -f table"
   },
@@ -34,6 +34,7 @@
     "jsx-loader": "^0.13.2",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",
+    "redux-devtools": "^3.4.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.6",
@@ -46,15 +47,15 @@
     "jquery": "^3.2.1",
     "json5": "^0.5.1",
     "lodash": "^4.17.4",
-    "mobx": "^3.1.16",
-    "mobx-react": "^4.2.2",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-color": "^2.13.0",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.1",
+    "redux": "^3.7.2",
     "webpack": "^2.7.0"
   }
 }
