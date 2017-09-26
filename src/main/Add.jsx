@@ -3,15 +3,14 @@ import Prototype from 'prop-types';
 import { extend } from 'lodash';
 
 class InputComponent extends React.Component {
-
   handleChange(e) {
     const value = Number(e.target.value);
     this.props.valueChange(value);
   }
 
-  render () {
+  render() {
     return (
-      <input type="number" value={this.props.value} onChange={(e) => this.handleChange(e)} />
+      <input type="number" value={this.props.value} onChange={(e) => { this.handleChange(e); }} />
     );
   }
 }
@@ -20,13 +19,12 @@ InputComponent.propTypes = {
   value: Prototype.string
 };
 
-class TextComponent extends React.Component {
-  render() {
-    return (
-      <p>{this.props.value}</p>
-    );
-  }
-}
+const TextComponent = (props) => {
+  return (
+    <p>{props.value}</p>
+  );
+};
+
 TextComponent.propTypes = {
   value: Prototype.string
 };
@@ -48,13 +46,13 @@ class Add extends React.Component {
     this.handleSubtraction = this.handleSubtraction.bind(this);
   }
   handleSum(value) {
-    this.setState({sum: value});
+    this.setState({ sum: value });
     // 使用lodash
-    let user = extend({}, this.state.user, {age: value});
-    this.setState({user: user});
+    const user = extend({}, this.state.user, { age: value });
+    this.setState({ user });
   }
   handleSubtraction(value) {
-    this.setState({subtraction: value});
+    this.setState({ subtraction: value });
   }
 
 
@@ -66,11 +64,13 @@ class Add extends React.Component {
         和：
         <InputComponent
           value={this.state.sum}
-          valueChange={this.handleSum} />
+          valueChange={this.handleSum}
+        />
         被减数：
         <InputComponent
           value={this.state.subtraction}
-          valueChange={this.handleSubtraction} />
+          valueChange={this.handleSubtraction}
+        />
         结果：
         <TextComponent value={result} />
         <div>

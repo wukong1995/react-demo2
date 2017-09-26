@@ -1,19 +1,19 @@
 import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import Numbers from '../redux/component/numbers/Numbers';
-import todoNumbers from '../redux/reducer/numbers';
+import Simple1 from '../redux/component/Simple1';
+import todoSimple from '../redux/reducer/simple';
 
-const store = createStore(todoNumbers);
+const store = createStore(todoSimple);
 
-const Redux = () => {
+const Simple = () => {
   return (
     <div className="container redux">
       <Provider store={store}>
-        <Numbers />
+        <Simple1 />
       </Provider>
     </div>
   );
 };
 
-export default Redux;
+export default Simple;

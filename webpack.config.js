@@ -1,7 +1,7 @@
 /* global __dirname */
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpack =  require('webpack');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/entry.js',
@@ -12,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)?$/,
         loader: 'babel-loader',
         include: /src/
       },
@@ -49,13 +49,12 @@ module.exports = {
         target: 'http://localhost:8088',
         secure: false,
         pathRewrite: {
-          '^/api' : ''
+          '^/api': ''
         }
       }
     },
     port: 8888,
     historyApiFallback: true,
-    inline: true ,
   },
   plugins: [
     new ExtractTextPlugin('main.css'),
