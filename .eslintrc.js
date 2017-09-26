@@ -4,7 +4,7 @@ module.exports = {
     "commonjs": true,
     "es6": true
   },
-  "extends": "eslint:recommended",
+  "extends": "airbnb",
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -28,7 +28,11 @@ module.exports = {
       "error",
       "always"
     ],
+    "max-len": 0,
+    "no-script-url": 0,
+    "jsx-a11y/anchor-has-content": 0,
     "jsx-quotes" : 1,
+    "jsx-a11y/href-no-hash": "off",
     "react/display-name": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-boolean-value": 1,
