@@ -4,14 +4,14 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Header from './shared/Header';
-import Simple1 from './redux/component/Simple1';
-import Simple2 from './redux/component/Simple2';
 
-import todoSimple from './redux/reducer/simple';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-
-const store = createStore(todoSimple);
+import Index from './main/Index';
+import List from './main/List';
+import Add from './main/Add';
+import Redux from './main/Redux';
+import Simple from './main/Simple';
+import EditorPage from './main/EditorPage';
+import ReactColor from './main/React-color';
 
 const App = () => {
   return (
@@ -24,8 +24,15 @@ const App = () => {
           transitionLeaveTimeout={300}
         >
           <Switch>
-            <Route path="/simple1" component={Simple1} />
-            <Route path="/simple2" component={Simple2} />
+            <Route exact path="/" render={() => <Redirect to="/index" />} />
+            <Route path="/index" component={Index} />
+            <Route path="/list" component={List} />
+            <Route path="/add" component={Add} />
+            <Route path="/redux" component={Redux} />
+            <Route path="/simple" component={Simple} />
+            <Route path="/color" component={ReactColor} />
+            <Route path="/editor" component={EditorPage} />
+            <Route path="/*" render={() => <Redirect to="/index" />} />
           </Switch>
         </ReactCSSTransitionGroup>
       </BrowserRouter>
@@ -34,8 +41,6 @@ const App = () => {
 };
 
 ReactDom.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <App />,
   document.getElementById('app')
 );
