@@ -21,7 +21,8 @@ const App = () => {
         <ReactCSSTransitionGroup
           transitionName="switch"
           transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
+          transitionLeaveTimeout={300}
+        >
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/index" />} />
             <Route path="/index" component={Index} />
