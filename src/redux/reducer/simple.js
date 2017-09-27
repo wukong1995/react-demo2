@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-// data
+// data one
 const todos = (state = [], action) => {
   switch (action.type) {
   case 'INCREASE':
@@ -23,7 +23,7 @@ const todos = (state = [], action) => {
   }
 };
 
-// data function
+// data two
 const filter = (state = 'ALL', action) => {
   switch (action.type) {
   case 'FILTER':

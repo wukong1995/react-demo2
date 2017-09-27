@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 import { add, changeState, setFilter } from '../action/simple';
 
-const Simple1 = (props) => {
+const Simple2 = (props) => {
   const { dispatch, todos } = props;
 
   return (
     <div>
-      <p>Simple1</p>
+      <p>Simple2</p>
       <button onClick={() => { dispatch(add('aaa')); }}>Add aaa</button>
 
       <h2>List:</h2>
@@ -30,7 +30,7 @@ const Simple1 = (props) => {
   );
 };
 
-Simple1.propTypes = {
+Simple2.propTypes = {
   dispatch: PropTypes.func,
   todos: PropTypes.number
 };
@@ -54,4 +54,4 @@ const numbers = (state) => {
   };
 };
 
-export default connect(numbers)(Simple1);
+export default connect(numbers)(Simple2);
