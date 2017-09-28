@@ -1,6 +1,8 @@
-import React, { Component, PropTypes } from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Footer extends Component {
+
+export default class Footer extends React.Component {
   renderFilter(filter, name) {
     if (filter === this.props.filter) {
       return name

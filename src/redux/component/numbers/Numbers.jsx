@@ -1,11 +1,12 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../../action/numbers'
-import AddTodo from './AddTodo'
-import TodoList from './TodoList'
-import Footer from './Footer'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../../action/numbers';
+import AddTodo from './AddTodo';
+import TodoList from './TodoList';
+import Footer from './Footer';
 
-class Numbers extends Component {
+class Numbers extends React.Component {
   render() {
     // Injected by connect() call:
     const { dispatch, visibleTodos, visibilityFilter } = this.props
