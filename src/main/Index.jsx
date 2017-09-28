@@ -9,16 +9,16 @@ const Index = () => {
         <Link to="/list">list</Link>
       </div>
       <div>
-        <Link to="/detail">detail</Link>
+        <Link to="/add">add</Link>
+      </div>
+      <div>
+        <Link to="/redux">redux</Link>
+      </div>
+      <div>
+        <Link to="/simple">simple</Link>
       </div>
       <div>
         <Link to="/color">color</Link>
-      </div>
-      <div>
-        <Link to="/setting">setting</Link>
-      </div>
-      <div>
-        <Link to="/add">add</Link>
       </div>
       <div>
         <Link to="/editor">editor</Link>
