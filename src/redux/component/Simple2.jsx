@@ -4,18 +4,16 @@ import wrapper from './wrapper';
 import { Link } from 'react-router-dom';
 
 
+
 import { add, changeState, setFilter } from '../action/simple';
 
-const Simple1 = (props) => {
+const Simple2 = (props) => {
   const { dispatch, todos } = props;
 
   return (
     <div>
-      <p>Simple1</p>
-      <Link to="/simple2">go simple2</Link>
-      <hr />
-      <button onClick={() => { dispatch(add('aaa')); }}>Add aaa</button>
-
+      <p>Simple2</p>
+      <Link to="/simple1">go simple1</Link>
       <h2>List:</h2>
       <ul>
         {
@@ -27,18 +25,14 @@ const Simple1 = (props) => {
           })
         }
       </ul>
-      <h2>Filter:</h2>
-      <a href="javascript:;" onClick={ () => { dispatch(setFilter('ALL')); }}>All&nbsp;&nbsp;</a>
-      <a href="javascript:;" onClick={ () => { dispatch(setFilter('FALSE')); }}>false&nbsp;&nbsp;</a>
-      <a href="javascript:;" onClick={ () => { dispatch(setFilter('TRUR')); }}>true&nbsp;&nbsp;</a>
     </div>
   );
 };
 
-Simple1.propTypes = {
+Simple2.propTypes = {
   dispatch: PropTypes.func,
   todos: PropTypes.number
 };
 
 
-export default wrapper(Simple1);
+export default wrapper(Simple2);

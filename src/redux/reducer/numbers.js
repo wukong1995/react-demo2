@@ -38,6 +38,6 @@ function todos(state = [], action) {
 const todoNumbers = combineReducers({
   visibilityFilter,
   todos
-})
+});
 
-export default todoNumbers
+export default todoNumbers;
