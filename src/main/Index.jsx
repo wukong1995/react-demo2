@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
-    <div className="index container">
+    <div className="index u-container">
       <div>
         <Link to="/list">list</Link>
       </div>
@@ -19,9 +19,6 @@ const Index = () => {
       </div>
       <div>
         <Link to="/color">color</Link>
-      </div>
-      <div>
-        <Link to="/editor">editor</Link>
       </div>
     </div>
   );

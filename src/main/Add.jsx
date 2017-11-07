@@ -60,7 +60,7 @@ class Add extends React.Component {
     const result = this.state.sum - this.state.subtraction;
 
     return (
-      <div>
+      <div className="u-container">
         和：
         <InputComponent
           value={this.state.sum}

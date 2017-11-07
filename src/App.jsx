@@ -10,7 +10,6 @@ import List from './main/List';
 import Add from './main/Add';
 import Redux from './main/Redux';
 import Simple from './main/Simple';
-import EditorPage from './main/EditorPage';
 import ReactColor from './main/React-color';
 
 const App = () => {
@@ -31,7 +30,6 @@ const App = () => {
             <Route path="/redux" component={Redux} />
             <Route path="/simple" component={Simple} />
             <Route path="/color" component={ReactColor} />
-            <Route path="/editor" component={EditorPage} />
             <Route path="/*" render={() => <Redirect to="/index" />} />
           </Switch>
         </ReactCSSTransitionGroup>

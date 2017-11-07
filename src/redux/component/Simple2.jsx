@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import wrapper from './wrapper';
 import { Link } from 'react-router-dom';
 
-
-
 import { add, changeState, setFilter } from '../action/simple';
 
 const Simple2 = (props) => {

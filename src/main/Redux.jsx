@@ -8,7 +8,7 @@ const store = createStore(todoNumbers);
 
 const Redux = () => {
   return (
-    <div className="container redux">
+    <div className="u-container redux">
       <Provider store={store}>
         <Numbers />
       </Provider>
