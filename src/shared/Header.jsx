@@ -1,15 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div className="flex-wrapper header">
-      <div className="flex-wrapper__left">
-        <h2 className="header__title">Project</h2>
-      </div>
-      <div className="flex-wrapper__right">
-        <a className="header__item" href="javascript: ;">登录</a>
-        <a className="header__item" href="javascript: ;">注册</a>
-      </div>
+    <div className="header">
+      <h2 className="header__title">
+        <Link to="/">Project</Link>
+      </h2>
     </div>
   );
 };

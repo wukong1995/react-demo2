@@ -42,34 +42,7 @@ a {
   transition: opacity 2s ease-in;
 }
 
-.flex-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  &__left {
-    display: flex;
-    align-items: center;
-  }
-
-  &__right {
-    display: flex;
-    align-items: center;
-  }
-}
-
-.clearfix::after {
-  content: '';
-  display: block;
-  height: 0;
-  clear: both;
-}
-
-.clearfix {
-  zoom:1;
-}
-
-.flex-wrapper {
+.u-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;

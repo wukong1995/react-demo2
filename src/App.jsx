@@ -14,9 +14,9 @@ import ReactColor from './main/React-color';
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <BrowserRouter>
+    <BrowserRouter>
+      <div>
+        <Header />
         <ReactCSSTransitionGroup
           transitionName="switch"
           transitionEnterTimeout={500}
@@ -33,8 +33,8 @@ const App = () => {
             <Route path="/*" render={() => <Redirect to="/index" />} />
           </Switch>
         </ReactCSSTransitionGroup>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 };
 

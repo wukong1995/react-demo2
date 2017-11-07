@@ -31,7 +31,7 @@ class List extends React.Component {
     });
 
     return (
-      <div>
+      <div className="u-container">
         <button onClick={this.handleAdd}>Add Item</button>
         <ReactCSSTransitionGroup
           transitionName="switch"
