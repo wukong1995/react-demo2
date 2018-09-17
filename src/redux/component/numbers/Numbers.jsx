@@ -6,7 +6,7 @@ import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 import Footer from './Footer';
 
-class Numbers extends React.Component {
+class Numbers extends React.PureComponent {
   render() {
     // Injected by connect() call:
     const { dispatch, visibleTodos, visibilityFilter } = this.props
@@ -15,17 +15,20 @@ class Numbers extends React.Component {
         <AddTodo
           onAddClick={text =>
             dispatch(addTodo(text))
-          } />
+          }
+        />
         <TodoList
           todos={visibleTodos}
           onTodoClick={index =>
             dispatch(completeTodo(index))
-          } />
+          }
+        />
         <Footer
           filter={visibilityFilter}
           onFilterChange={nextFilter =>
             dispatch(setVisibilityFilter(nextFilter))
-          } />
+          }
+        />
       </div>
     )
   }
