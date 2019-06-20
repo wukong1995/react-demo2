@@ -1,6 +1,21 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+class Item extends React.PureComponent {
+  render() {
+    const { item } = this.props
+
+    console.log('render call', item)
+    return (
+      <div>
+        {item}
+      </div>
+    )
+  }
+}
+
+const style = {color: '#ddd'}
+
 class List extends React.Component {
   constructor(props) {
     super(props);
@@ -9,9 +24,8 @@ class List extends React.Component {
   }
 
   handleAdd() {
-    const newItems = this.state.items.concat([
-      prompt('Enter some text')
-    ]);
+    const newItems = this.state.items
+    newItems.push(prompt('Enter some text'));
     this.setState({ items: newItems });
   }
 
@@ -22,24 +36,22 @@ class List extends React.Component {
   }
 
   render() {
-    const items = this.state.items.map((item, i) => {
-      return (
-        <div key={item} onClick={() => { this.handleRemove(i); }}>
-          {item}
-        </div>
-      );
-    });
 
     return (
       <div>
         <button onClick={this.handleAdd}>Add Item</button>
-        <ReactCSSTransitionGroup
+        {/* <ReactCSSTransitionGroup
           transitionName="switch"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
-        >
-          {items}
-        </ReactCSSTransitionGroup>
+        > */}
+          {
+            this.state.items.map((item) => (
+              <Item key={item} item={item} style={style} />
+            ))
+
+          }
+        {/* </ReactCSSTransitionGroup> */}
       </div>
     );
   }
