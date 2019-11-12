@@ -2,6 +2,8 @@
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const OptimizeCSS  = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin  = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/entry.js',
@@ -56,14 +58,19 @@ module.exports = {
     port: 8888,
     historyApiFallback: true,
   },
+  optimization: {
+    minimize: process.env.NODE_ENV === 'production',
+
+    minimizer: [
+      new OptimizeCSS(),
+      new TerserPlugin({
+        test: /\.js(\?.*)?$/i
+      })
+    ],
+  },
   plugins: [
     new ExtractTextPlugin('main.css'),
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
-    new webpack.optimize.UglifyJsPlugin({
-      output: {
-        comments: false
-      }
-    })
+    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') })
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.scss'],

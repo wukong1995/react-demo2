@@ -1,14 +1,22 @@
 {
   "presets": [
-    ["env", { "modules": false }],
-    "react"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ],
    "plugins": [
     ["import",
       {
         "libraryName": "antd",
-        "style": true,
+        "style": "css",
       }
-    ]
+    ],
+    "@babel/plugin-transform-arrow-functions",
+    "@babel/plugin-proposal-class-properties",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
   ]
 }
