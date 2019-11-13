@@ -10,6 +10,7 @@ import List from './main/List';
 import Add from './main/Add';
 import Redux from './main/Redux';
 import Simple from './main/Simple';
+import Sentence from './main/Sentence';
 import EditorPage from './main/EditorPage';
 import ReactColor from './main/React-color';
 
@@ -25,6 +26,7 @@ const App = () => {
         >
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/index" />} />
+            <Route path="/sentence" component={Sentence} />
             <Route path="/index" component={Index} />
             <Route path="/list" component={List} />
             <Route path="/add" component={Add} />

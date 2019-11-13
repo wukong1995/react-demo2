@@ -1,0 +1,14 @@
+.sentence {
+  padding: 64px;
+  background-color: #f5f7f7;
+
+  mark {
+    background-color: #d2e4fd;
+  }
+
+  &-item {
+    width: 200px;
+    padding: 8px 12px;
+    background-color: #fff;
+  }
+}
