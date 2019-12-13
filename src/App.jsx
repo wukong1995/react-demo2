@@ -13,6 +13,7 @@ import Simple from './main/Simple';
 import Sentence from './main/Sentence';
 import EditorPage from './main/EditorPage';
 import ReactColor from './main/React-color';
+import TableDemo from './main/TableDemo'
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/simple" component={Simple} />
             <Route path="/color" component={ReactColor} />
             <Route path="/editor" component={EditorPage} />
+            <Route path="/table" component={TableDemo} />
             <Route path="/*" render={() => <Redirect to="/index" />} />
           </Switch>
         </ReactCSSTransitionGroup>
