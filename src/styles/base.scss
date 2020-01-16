@@ -84,3 +84,10 @@ a {
     align-items: center;
   }
 }
+
+
+.u-text-limit-one {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

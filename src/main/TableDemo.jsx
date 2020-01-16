@@ -8,14 +8,17 @@ const columns = [
     width: 100,
     dataIndex: 'name',
     key: 'name',
+    ellipsis: true,
     fixed: 'left',
+    render: (text) => {
+      return <div className="u-text-limit-one">{text}</div>
+    }
   },
   {
     title: 'Age',
     width: 100,
     dataIndex: 'age',
     key: 'age',
-    fixed: 'left',
   },
   {
     title: 'Column 1',
@@ -54,7 +57,7 @@ const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
-    name: `Edrward ${i}`,
+    name: `很长很长很长很长很长很长很长Edrward ${i}`,
     age: 32,
     address: `London Park no. ${i}`,
   });
