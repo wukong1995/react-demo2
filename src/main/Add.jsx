@@ -1,38 +1,39 @@
-import React from 'react';
-import Prototype from 'prop-types';
-import { extend } from 'lodash';
+import React from 'react'
+import Prototype from 'prop-types'
+import { extend } from 'lodash'
 
 class InputComponent extends React.Component {
   handleChange(e) {
-    const value = Number(e.target.value);
-    this.props.valueChange(value);
+    const value = Number(e.target.value)
+    this.props.valueChange(value)
   }
 
   render() {
     return (
-      <input type="number" value={this.props.value} onChange={(e) => { this.handleChange(e); }} />
-    );
+      <input type="number" value={this.props.value} onChange={(e) => { this.handleChange(e) }} />
+    )
   }
 }
+
 InputComponent.propTypes = {
   valueChange: Prototype.func,
   value: Prototype.string
-};
+}
 
 const TextComponent = (props) => {
   return (
     <p>{props.value}</p>
-  );
-};
+  )
+}
 
 TextComponent.propTypes = {
   value: Prototype.string
-};
+}
 
 
 class Add extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       sum: 5,
       subtraction: 3,
@@ -40,24 +41,26 @@ class Add extends React.Component {
         name: 'wang',
         age: 20
       }
-    };
+    }
 
-    this.handleSum = this.handleSum.bind(this);
-    this.handleSubtraction = this.handleSubtraction.bind(this);
+    this.handleSum = this.handleSum.bind(this)
+    this.handleSubtraction = this.handleSubtraction.bind(this)
   }
+
   handleSum(value) {
-    this.setState({ sum: value });
+    this.setState({ sum: value })
     // 使用lodash
-    const user = extend({}, this.state.user, { age: value });
-    this.setState({ user });
+    const user = extend({}, this.state.user, { age: value })
+    this.setState({ user })
   }
+
   handleSubtraction(value) {
-    this.setState({ subtraction: value });
+    this.setState({ subtraction: value })
   }
 
 
   render() {
-    const result = this.state.sum - this.state.subtraction;
+    const result = this.state.sum - this.state.subtraction
 
     return (
       <div>
@@ -74,12 +77,18 @@ class Add extends React.Component {
         结果：
         <TextComponent value={result} />
         <div>
-          <p>姓名：{this.state.user.name}</p>
-          <p>年龄：{this.state.user.age}</p>
+          <p>
+            姓名：
+            {this.state.user.name}
+          </p>
+          <p>
+            年龄：
+            {this.state.user.age}
+          </p>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Add;
+export default Add

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 const Index = () => {
@@ -24,7 +24,7 @@ const Index = () => {
         <Link to="/editor">editor</Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

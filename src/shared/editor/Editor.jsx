@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import editorEvent from './event';
+import editorEvent from './event'
 
 class Editor extends React.Component {
   componentDidMount() {
-    editorEvent();
+    editorEvent()
   }
 
   render() {
@@ -46,7 +46,10 @@ class Editor extends React.Component {
               <a className="menu-item" data-type="addTitle" href="javascript:;">
                 <i className="iconfont icon-lianjie" />
                 <div className="menu-item__drop">
-                  <h5>链接 <i>关闭</i></h5>
+                  <h5>
+链接
+                    <i>关闭</i>
+                  </h5>
                   <p><input type="text" placeholder="链接文字" /></p>
                   <p><input type="text" placeholder="http://" /></p>
                   <p><a href="javascript:;">插入</a></p>
@@ -77,12 +80,12 @@ class Editor extends React.Component {
             <div className="editor-pannel" id="editor-pannel" contentEditable>
               <p>请输入内容...</p>
             </div>
-            <textarea className="editor-textarea" id="editor-textarea"></textarea>
+            <textarea className="editor-textarea" id="editor-textarea" />
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Editor;
+export default Editor

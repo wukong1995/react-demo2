@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class Todo extends React.PureComponent {
   render() {
-    console.log('render call', this.props.text);
+    console.log('render call', this.props.text)
 
     return (
       <li
@@ -15,7 +15,7 @@ export default class Todo extends React.PureComponent {
       >
         {this.props.text}
       </li>
-    );
+    )
   }
 }
 

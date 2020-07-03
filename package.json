@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack-dev-server --inline --hot",
     "build": "webpack -p",
-    "eslint": "eslint ./src --ext .js,.jsx -f table"
+    "lint": "eslint ./src --ext .js,.jsx -f table --fix"
   },
   "repository": {
     "type": "git",

@@ -1,13 +1,13 @@
-import $ from 'jquery';
+import $ from 'jquery'
 
-const topTag = ['p', 'blockquote', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ol', 'ul'];
+const topTag = ['p', 'blockquote', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ol', 'ul']
 
-const getTopNode = function(node) {
-  const nodeName  = node.nodeName.toString().toLowerCase();
+const getTopNode = function (node) {
+  const nodeName = node.nodeName.toString().toLowerCase()
   if ($.inArray(nodeName, topTag) > -1) {
-    return $(node);
+    return $(node)
   }
-  return getTopNode(node.parentNode);
-};
+  return getTopNode(node.parentNode)
+}
 
-export default getTopNode;
+export default getTopNode

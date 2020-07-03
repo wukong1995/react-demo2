@@ -1,10 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../../action/numbers';
-import AddTodo from './AddTodo';
-import TodoList from './TodoList';
-import Footer from './Footer';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import {
+  addTodo, completeTodo, setVisibilityFilter, VisibilityFilters
+} from '../../action/numbers'
+import AddTodo from './AddTodo'
+import TodoList from './TodoList'
+import Footer from './Footer'
 
 class Numbers extends React.PureComponent {
   render() {
@@ -13,21 +15,15 @@ class Numbers extends React.PureComponent {
     return (
       <div>
         <AddTodo
-          onAddClick={text =>
-            dispatch(addTodo(text))
-          }
+          onAddClick={(text) => dispatch(addTodo(text))}
         />
         <TodoList
           todos={visibleTodos}
-          onTodoClick={index =>
-            dispatch(completeTodo(index))
-          }
+          onTodoClick={(index) => dispatch(completeTodo(index))}
         />
         <Footer
           filter={visibilityFilter}
-          onFilterChange={nextFilter =>
-            dispatch(setVisibilityFilter(nextFilter))
-          }
+          onFilterChange={(nextFilter) => dispatch(setVisibilityFilter(nextFilter))}
         />
       </div>
     )
@@ -48,12 +44,12 @@ Numbers.propTypes = {
 
 function selectTodos(todos, filter) {
   switch (filter) {
-    case VisibilityFilters.SHOW_ALL:
-      return todos
-    case VisibilityFilters.SHOW_COMPLETED:
-      return todos.filter(todo => todo.completed)
-    case VisibilityFilters.SHOW_ACTIVE:
-      return todos.filter(todo => !todo.completed)
+  case VisibilityFilters.SHOW_ALL:
+    return todos
+  case VisibilityFilters.SHOW_COMPLETED:
+    return todos.filter((todo) => todo.completed)
+  case VisibilityFilters.SHOW_ACTIVE:
+    return todos.filter((todo) => !todo.completed)
   }
 }
 

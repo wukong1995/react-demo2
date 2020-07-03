@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Todo from './Todo';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Todo from './Todo'
 
 export default class TodoList extends React.PureComponent {
   render() {
@@ -16,7 +16,7 @@ export default class TodoList extends React.PureComponent {
           ))
         }
       </ul>
-    );
+    )
   }
 }
 
@@ -26,4 +26,4 @@ TodoList.propTypes = {
     text: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired
   }).isRequired).isRequired
-};
+}

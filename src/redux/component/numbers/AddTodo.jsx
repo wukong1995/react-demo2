@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class AddTodo extends React.Component {
   render() {
     return (
       <div>
-        <input type='text' ref='input' />
+        <input type="text" ref="input" />
         <button onClick={(e) => this.handleClick(e)}>
           Add
         </button>

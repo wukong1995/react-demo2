@@ -1,10 +1,10 @@
-import React from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import Numbers from '../redux/component/numbers/Numbers';
-import todoNumbers from '../redux/reducer/numbers';
+import React from 'react'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import Numbers from '../redux/component/numbers/Numbers'
+import todoNumbers from '../redux/reducer/numbers'
 
-const store = createStore(todoNumbers);
+const store = createStore(todoNumbers)
 
 const Redux = () => {
   return (
@@ -13,7 +13,7 @@ const Redux = () => {
         <Numbers />
       </Provider>
     </div>
-  );
-};
+  )
+}
 
-export default Redux;
+export default Redux

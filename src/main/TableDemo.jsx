@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Table } from 'antd';
+import { Table } from 'antd'
 
 const columns = [
   {
@@ -51,16 +51,16 @@ const columns = [
     width: 100,
     render: () => <a>action</a>,
   },
-];
+]
 
-const data = [];
+const data = []
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
     name: `很长很长很长很长很长很长很长Edrward ${i}`,
     age: 32,
     address: `London Park no. ${i}`,
-  });
+  })
 }
 
 const x = 300 + 4 * 150

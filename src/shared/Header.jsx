@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
         <a className="header__item" href="javascript: ;">注册</a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

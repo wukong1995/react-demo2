@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 
 export default class Footer extends React.Component {
@@ -9,10 +9,12 @@ export default class Footer extends React.Component {
     }
 
     return (
-      <a href='#' onClick={e => {
-        e.preventDefault()
-        this.props.onFilterChange(filter)
-      }}>
+      <a
+        href="#" onClick={(e) => {
+          e.preventDefault()
+          this.props.onFilterChange(filter)
+        }}
+      >
         {name}
       </a>
     )

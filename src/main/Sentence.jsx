@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Popover } from 'antd';
+import React, { Component } from 'react'
+import { Popover } from 'antd'
 
-const htmlStr = '<div>我要从<mark>北京</mark>到<mark>上海</mark></div>';
+const htmlStr = '<div>我要从<mark>北京</mark>到<mark>上海</mark></div>'
 
 const content = (
   <div>
     <p>Content</p>
     <p>Content</p>
   </div>
-);
+)
 
 class Sentence extends Component {
   constructor(props) {
@@ -30,4 +30,4 @@ class Sentence extends Component {
   }
 }
 
-export default Sentence;
+export default Sentence

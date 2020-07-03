@@ -1,19 +1,21 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import '@babel/polyfill';
+import React from 'react'
+import ReactDom from 'react-dom'
+import {
+  BrowserRouter, Route, Switch, Redirect
+} from 'react-router-dom'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import '@babel/polyfill'
 
-import Header from './shared/Header';
+import Header from './shared/Header'
 
-import Index from './main/Index';
-import List from './main/List';
-import Add from './main/Add';
-import Redux from './main/Redux';
-import Simple from './main/Simple';
-import Sentence from './main/Sentence';
-import EditorPage from './main/EditorPage';
-import ReactColor from './main/React-color';
+import Index from './main/Index'
+import List from './main/List'
+import Add from './main/Add'
+import Redux from './main/Redux'
+import Simple from './main/Simple'
+import Sentence from './main/Sentence'
+import EditorPage from './main/EditorPage'
+import ReactColor from './main/React-color'
 import TableDemo from './main/TableDemo'
 
 const App = () => {
@@ -42,10 +44,10 @@ const App = () => {
         </ReactCSSTransitionGroup>
       </BrowserRouter>
     </div>
-  );
-};
+  )
+}
 
 ReactDom.render(
   <App />,
   document.getElementById('app')
-);
+)

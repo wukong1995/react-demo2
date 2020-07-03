@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
 // data one
 const todos = (state = [], action) => {
@@ -10,32 +10,30 @@ const todos = (state = [], action) => {
         text: action.text,
         state: true
       }
-    ];
+    ]
   case 'DISCREASE':
     return [
       ...state.slice(0, action.index),
-      Object.assign({}, state[action.index], {
-        state: false
-      }),
+      { ...state[action.index], state: false },
       ...state.slice(action.index + 1)
-    ];
-  default: return state;
+    ]
+  default: return state
   }
-};
+}
 
 // data two
 const filter = (state = 'ALL', action) => {
   switch (action.type) {
   case 'FILTER':
-    return action.filter;
+    return action.filter
   default:
-    return state;
+    return state
   }
-};
+}
 
 const todoSimple = combineReducers({
   todos,
   filter
-});
+})
 
-export default todoSimple;
+export default todoSimple
