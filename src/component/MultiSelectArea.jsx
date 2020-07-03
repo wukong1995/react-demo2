@@ -61,11 +61,12 @@ class MultiSelectArea extends Component {
       originImgSize: imgSize
     })
   }
+
   // Get the size of the src image
   getSize = (src) => {
     const img = this.$imgHidden
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       if (src && img) {
         img.onload = () => {
           // Compatible with unacceptable size
@@ -84,28 +85,28 @@ class MultiSelectArea extends Component {
   }
 
   getSizeImg = (img) => {
-    let w = img.width
-    let h = img.height
-    let r = w === 0 && h === 0 ? 0 : w / h
+    const w = img.width
+    const h = img.height
+    const r = w === 0 && h === 0 ? 0 : w / h
 
     return {
-      w: w,
-      h: h,
-      r: r
+      w,
+      h,
+      r
     }
   }
 
 
   calcPosOfBox = () => { // set posImg static
-    let ref = this.$imgArea
-    const { scrollTop, scrollLeft, posImg} = this.state
+    const ref = this.$imgArea
+    const { scrollTop, scrollLeft, posImg } = this.state
 
-    posImg.top= ref.getBoundingClientRect().top + scrollTop
-    posImg.left= ref.getBoundingClientRect().left + scrollLeft
+    posImg.top = ref.getBoundingClientRect().top + scrollTop
+    posImg.left = ref.getBoundingClientRect().left + scrollLeft
 
     this.setState({
-      scrollLeft : window.pageXOffset || document.documentElement.scrollLeft,
-      scrollTop : window.pageYOffset || document.documentElement.scrollTop,
+      scrollLeft: window.pageXOffset || document.documentElement.scrollLeft,
+      scrollTop: window.pageYOffset || document.documentElement.scrollTop,
       posImg
     })
   }
@@ -122,7 +123,7 @@ class MultiSelectArea extends Component {
     let temp = 0
     const { areas, posImg } = this.state
     if (areas.length > 0) {
-      let idArea = areas.slice(-1).pop().id // get last areas
+      const idArea = areas.slice(-1).pop().id // get last areas
       if (idArea) {
         areas.push({
           id: idArea + 1,
@@ -161,7 +162,7 @@ class MultiSelectArea extends Component {
 
     if (this.state.mousedown) {
       const { areas, temp, posImg } = this.state
-      areas.filter(x => x.id === temp).map(item => {
+      areas.filter((x) => x.id === temp).map((item) => {
         if (e.pageX - item.x < 0 || e.pageY - item.y < 0) {
           item.width = 50
           item.height = 50
@@ -181,7 +182,7 @@ class MultiSelectArea extends Component {
 
     this.setState({
       mousedown: false,
-      areas: areas.filter(item => item.width !== 0 || item.height !== 0)
+      areas: areas.filter((item) => item.width !== 0 || item.height !== 0)
     })
   }
 
@@ -189,11 +190,11 @@ class MultiSelectArea extends Component {
   changeResizable = (id) => {
     const { areas } = this.state
 
-    areas.filter(item => item.id === id).map(item => {
+    areas.filter((item) => item.id === id).map((item) => {
       item.resizable = true
       item.z = 100
     })
-    areas.filter(item => item.id !== id).map(item => {
+    areas.filter((item) => item.id !== id).map((item) => {
       item.resizable = false
       item.z = 0
     })
@@ -208,7 +209,7 @@ class MultiSelectArea extends Component {
     const { areas } = this.state
 
     this.setState({
-      areas: areas.filter(item => item.id !== id)
+      areas: areas.filter((item) => item.id !== id)
     })
   }
 
@@ -220,7 +221,9 @@ class MultiSelectArea extends Component {
   }
 
   doDrag = (item, type, e) => {
-    const { dragdown, posImg, areas} = this.state
+    const {
+      dragdown, posImg, areas, originImgSize
+    } = this.state
     if (dragdown) {
       switch (type) {
       case 'w':
@@ -231,8 +234,8 @@ class MultiSelectArea extends Component {
         }
         // fix minimum area
         if (item.width < 10) {
-          item.x = item.x - 10
-          item.width = item.width + 10
+          item.x -= 10
+          item.width += 10
         }
         break
       case 'sw':
@@ -246,11 +249,11 @@ class MultiSelectArea extends Component {
         }
         // fix minimum area
         if (item.width < 10) {
-          item.x = item.x - 10
-          item.width = item.width + 10
+          item.x -= 10
+          item.width += 10
         }
         if (item.height < 10) {
-          item.height = item.height + 10
+          item.height += 10
         }
         break
       case 's':
@@ -260,7 +263,7 @@ class MultiSelectArea extends Component {
         }
         // fix minimum area
         if (item.height < 10) {
-          item.height = item.height + 10
+          item.height += 10
         }
         break
       case 'se':
@@ -273,11 +276,11 @@ class MultiSelectArea extends Component {
         }
         // fix minimum area
         if (item.width < 10) {
-          item.x = item.x - 10
-          item.width = item.width + 10
+          item.x -= 10
+          item.width += 10
         }
         if (item.height < 10) {
-          item.height = item.height + 10
+          item.height += 10
         }
         break
       case 'e':
@@ -287,8 +290,8 @@ class MultiSelectArea extends Component {
         }
         // fix minimum area
         if (item.width < 10) {
-          item.x = item.x - 10
-          item.width = item.width + 10
+          item.x -= 10
+          item.width += 10
         }
         break
       case 'ne':
@@ -297,33 +300,33 @@ class MultiSelectArea extends Component {
           item.width = e.pageX - posImg.left - item.x
         }
         if (e.pageY - posImg.top >= 0) {
-          item.height = item.height + ((item.y + posImg.top) - e.pageY)
+          item.height += ((item.y + posImg.top) - e.pageY)
           item.y = e.pageY - posImg.top
         }
         // fix minimum area
         if (item.width < 10) {
-          item.x = item.x - 10
-          item.width = item.width + 10
+          item.x -= 10
+          item.width += 10
         }
         if (item.height < 10) {
-          item.height = item.height + 10
+          item.height += 10
         }
         break
       case 'n':
         // fix drag outside box n position
         if (e.pageY - posImg.top >= 0) {
-          item.height = item.height + ((item.y + posImg.top) - e.pageY)
+          item.height += ((item.y + posImg.top) - e.pageY)
           item.y = e.pageY - posImg.top
         }
         // fix minimum area
         if (item.height < 10) {
-          item.height = item.height + 10
+          item.height += 10
         }
         break
       case 'nw':
         // fix drag outside box nw position
         if (e.pageY - posImg.top >= 0) {
-          item.height = item.height + ((item.y + posImg.top) - e.pageY)
+          item.height += ((item.y + posImg.top) - e.pageY)
           item.y = e.pageY - posImg.top
         }
         if (e.pageX - posImg.left >= 0) {
@@ -332,11 +335,11 @@ class MultiSelectArea extends Component {
         }
         // fix minimum area
         if (item.width < 10) {
-          item.x = item.x - 10
-          item.width = item.width + 10
+          item.x -= 10
+          item.width += 10
         }
         if (item.height < 10) {
-          item.height = item.height + 10
+          item.height += 10
         }
         break
       default:
@@ -366,12 +369,14 @@ class MultiSelectArea extends Component {
   }
 
   doMove = (item, e) => {
-    const { move, moveTempX, moveTempY, moveCurrentX, moveCurrentY, originImgSize, areas } = this.state
+    const {
+      move, moveTempX, moveTempY, moveCurrentX, moveCurrentY, originImgSize, areas
+    } = this.state
     if (move) {
-      let x = moveCurrentX + (e.clientX - moveTempX)
-      let y = moveCurrentY + (e.clientY - moveTempY)
-      let maxX = originImgSize.w - item.width
-      let maxY = originImgSize.h - item.height
+      const x = moveCurrentX + (e.clientX - moveTempX)
+      const y = moveCurrentY + (e.clientY - moveTempY)
+      const maxX = originImgSize.w - item.width
+      const maxY = originImgSize.h - item.height
       if (x > 0 && y > 0 && x < maxX && y < maxY) {
         item.x = x
         item.y = y
@@ -380,13 +385,13 @@ class MultiSelectArea extends Component {
 
     this.setState({
       areas
-    });
+    })
   }
 
   endMove = () => {
     this.setState({
       move: false
-    });
+    })
   }
 
   // send data from child to parent $emit
@@ -410,12 +415,14 @@ class MultiSelectArea extends Component {
   // },
 
   render() {
-    const { url, areas, posImg, originImgSize } = this.state
+    const {
+      url, areas, posImg, originImgSize
+    } = this.state
     const { opacityOverlay, opacityOutline } = this.props
 
     return (
       <div>
-        <div className="image-decorator" ref={ref => this.$imgArea = ref}>
+        <div className="image-decorator" ref={(ref) => this.$imgArea = ref}>
           <div style={{ positon: 'relative' }}>
             <img
               className="original-image"
@@ -428,8 +435,8 @@ class MultiSelectArea extends Component {
               style={{
                 opacity: opacityOverlay,
                 position: 'absolute',
-                width: originImgSize.w + 'px',
-                height: originImgSize.h + 'px',
+                width: `${originImgSize.w}px`,
+                height: `${originImgSize.h}px`,
                 display: 'block'
               }}
             />
@@ -439,15 +446,15 @@ class MultiSelectArea extends Component {
                 backgroundColor: 'rgb(0, 0, 0)',
                 opacity: 0,
                 position: 'absolute',
-                width: originImgSize.w + 'px',
-                height: originImgSize.h + 'px',
+                width: `${originImgSize.w}px`,
+                height: `${originImgSize.h}px`,
                 cursor: 'crosshair'
               }}
               onMouseDown={this.mouseDown}
               onMouseMove={this.mouseMove}
             />
             {
-              areas.map(item => (
+              areas.map((item) => (
                 <div key={item.id}>
                   <div
                     onMouseDown={(e) => { e.stopPropagation(); e.preventDefault(); this.startMove(item, e) }}
@@ -459,10 +466,10 @@ class MultiSelectArea extends Component {
                         opacity: opacityOutline,
                         position: 'absolute',
                         cursor: 'default',
-                        width: item.width + 4 + 'px',
-                        height: item.height + 4 + 'px',
-                        left: item.x + posImg.left - 2 + 'px',
-                        top: item.y + posImg.top - 2 + 'px',
+                        width: `${item.width + 4}px`,
+                        height: `${item.height + 4}px`,
+                        left: `${item.x + posImg.left - 2}px`,
+                        top: `${item.y + posImg.top - 2}px`,
                         zIndex: item.z
                       }}
                     />
@@ -472,10 +479,10 @@ class MultiSelectArea extends Component {
                         background: `#fff url('${url}') -${item.x}px -${item.y}px / ${originImgSize.w}px ${originImgSize.h}px no-repeat`,
                         position: 'absolute',
                         cursor: 'move',
-                        width: item.width + 'px',
-                        height: item.height + 'px',
-                        left: item.x + posImg.left + 'px',
-                        top: item.y + posImg.top + 'px',
+                        width: `${item.width}px`,
+                        height: `${item.height}px`,
+                        left: `${item.x + posImg.left}px`,
+                        top: `${item.y + posImg.top}px`,
                         zIndex: item.z + 2
                       }}
                       onClick={() => this.changeResizable(item.id)}
@@ -486,13 +493,13 @@ class MultiSelectArea extends Component {
                           className="delete-area"
                           style={{
                             display: 'block',
-                            left: item.x + posImg.left + item.width + 'px',
-                            top: item.y + posImg.top - 25 + 'px',
+                            left: `${item.x + posImg.left + item.width}px`,
+                            top: `${item.y + posImg.top - 25}px`,
                             zIndex: item.z + 2
                           }}
                           onClick={() => this.deleteSelected(item.id)}
                         >
-                          <div className="select-areas--delete_area"></div>
+                          <div className="select-areas--delete_area" />
                         </div>
                       ) : null
                     }
@@ -504,7 +511,7 @@ class MultiSelectArea extends Component {
             }
 
             <div className="c-crop--hide_main">
-              <img id="c-crop--hide_img" ref={ref => this.$imgHidden = ref} src={url} alt="" width="100%" />
+              <img id="c-crop--hide_img" ref={(ref) => this.$imgHidden = ref} src={url} alt="" width="100%" />
             </div>
           </div>
         </div>

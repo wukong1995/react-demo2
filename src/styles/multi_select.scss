@@ -33,12 +33,14 @@
     width: 16px;
   }
 
-  &-handler {
+  &-resize-handler {
     background-color: #000;
     border: 1px #fff solid;
     height: 8px;
     width: 8px;
     overflow: hidden;
+    opacity: 0.5;
+    position: absolute;
   }
 }
 .delete-area {
