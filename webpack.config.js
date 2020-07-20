@@ -6,7 +6,7 @@ const OptimizeCSS  = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin  = require('terser-webpack-plugin');
 
 module.exports = {
-  entry: './src/entry.js',
+  entry: './src/entry.ts',
   output: {
     path: __dirname + '/build',
     filename: 'bundle.js'
@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)?$/,
+        test: /\.(ts|tsx)?$/,
         loader: 'babel-loader',
         include: /src/
       },
@@ -73,7 +73,7 @@ module.exports = {
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') })
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.css', '.scss'],
+    extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
   },
   devtool: 'eval-source-map'
 };
