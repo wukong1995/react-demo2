@@ -8,6 +8,18 @@ const list = {
   [zhCN.locale]: zhCN.messages
 }
 
+export const withLanguage = (Component) => (props) => {
+  return (
+    <LanguageContext.Consumer>
+      {
+        language => (
+          <Component {...props} t={(title) => list[language][title] } />
+        )
+      }
+    </LanguageContext.Consumer>
+  )
+}
+
 const t = (title) => {
   return (
     <LanguageContext.Consumer>
