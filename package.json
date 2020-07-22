@@ -14,7 +14,7 @@
     "type": "git",
     "url": ".."
   },
-  "author": "wangpeipei",
+  "author": "Peipei Wong",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.7.2",

@@ -8,15 +8,16 @@ import '@babel/polyfill'
 
 import Header from './shared/Header'
 
-import Index from './main/Index'
-import List from './main/List'
-import Add from './main/Add'
-import Redux from './main/Redux'
-import Simple from './main/Simple'
-import Sentence from './main/Sentence'
-import EditorPage from './main/EditorPage'
-import ReactColor from './main/React-color'
-import TableDemo from './main/TableDemo'
+import Index from './pages/Index'
+import List from './pages/List'
+import Add from './pages/Add'
+import Redux from './pages/Redux'
+import Simple from './pages/Simple'
+import Sentence from './pages/Sentence'
+import EditorPage from './pages/EditorPage'
+import ReactColor from './pages/React-color'
+import TableDemo from './pages/TableDemo'
+import I18N from './pages/i18n'
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="/color" component={ReactColor} />
             <Route path="/editor" component={EditorPage} />
             <Route path="/table" component={TableDemo} />
+            <Route path="/i18n" component={I18N} />
             <Route path="/*" render={() => <Redirect to="/index" />} />
           </Switch>
         </ReactCSSTransitionGroup>
